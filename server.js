@@ -4,12 +4,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// servir les fichiers Angular compilés
-app.use(express.static(path.join(__dirname, 'dist/gestionrhfront')));
+// 👉 Servir les fichiers Angular compilés (dossier browser en Angular 17+)
+app.use(express.static(path.join(__dirname, 'dist/gestionrhfront/browser')));
 
-// rediriger toutes les routes vers index.html (Angular router)
+// 👉 Rediriger toutes les routes vers index.html (Angular router)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/gestionrhfront/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/gestionrhfront/browser/index.html'));
 });
 
 app.listen(port, () => {

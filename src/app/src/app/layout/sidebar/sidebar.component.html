@@ -1,0 +1,76 @@
+<mat-sidenav-container class="layout-container">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" opened class="sidebar" [fixedInViewport]="true" [attr.aria-label]="'Sidebar'">
+    <div class="sidebar-top">
+      <div class="logo-container">
+        <img src="assets/download.jpg" alt="Logo" class="logo-img" />
+      </div>
+      <button mat-icon-button class="collapse-btn" (click)="sidenav.toggle()" aria-label="Toggle sidebar">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/Tableaubord">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span>Tableau de bord</span>
+      </a>
+
+      <ng-container *ngIf="role === 'EMPLOYE'">
+        <a mat-list-item routerLink="/mes-demandes"><mat-icon>send</mat-icon><span>Mes Demandes</span></a>
+        <a mat-list-item routerLink="/historique"><mat-icon>history</mat-icon><span>Historique des Congés</span></a>
+        <a mat-list-item routerLink="/documents"><mat-icon>insert_drive_file</mat-icon><span>Mes Documents</span></a>
+      </ng-container>
+
+      <ng-container *ngIf="role === 'MANAGER'">
+        <a mat-list-item routerLink="/validation-equipe"><mat-icon>group</mat-icon><span>Congés Équipe</span></a>
+        <a mat-list-item routerLink="/historique"><mat-icon>history</mat-icon><span>Historique Congés</span></a>
+      </ng-container>
+
+      <ng-container *ngIf="role === 'RH'">
+        <a mat-list-item routerLink="/utilisateurs"><mat-icon>people</mat-icon><span>Utilisateurs</span></a>
+        <a mat-list-item routerLink="/conges"><mat-icon>work</mat-icon><span>Gestion des Congés</span></a>
+        <a mat-list-item routerLink="/solde-conge"><mat-icon>account_balance_wallet</mat-icon><span>Solde Congé</span></a>
+        <a mat-list-item routerLink="/documents"><mat-icon>folder_shared</mat-icon><span>Documents Admin</span></a>
+      </ng-container>
+    </mat-nav-list>
+
+    <div class="logout-container">
+      <button mat-stroked-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Déconnexion
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <!-- Topbar -->
+  <mat-sidenav-content>
+    <mat-toolbar class="topbar">
+      <div class="brand">
+        <h1 class="app-title">Gestion Congés</h1>
+      </div>
+
+      <span class="flex-spacer"></span>
+
+      <div class="topbar-actions">
+        <button mat-icon-button matBadge="{{notificationsCount}}" matBadgeColor="warn" aria-label="Notifications">
+          <mat-icon>notifications</mat-icon>
+        </button>
+
+        <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
+          <img class="avatar" [src]="userAvatarUrl || 'assets/default-avatar.png'" alt="avatar">
+        </button>
+
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item><mat-icon>account_circle</mat-icon> Profile</button>
+          <button mat-menu-item><mat-icon>settings</mat-icon> Paramètres</button>
+          <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Déconnexion</button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

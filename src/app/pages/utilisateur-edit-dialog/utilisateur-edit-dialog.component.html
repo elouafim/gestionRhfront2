@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Modifier utilisateur</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSave()" class="edit-form">
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" />
+    <mat-error *ngIf="form.controls['nom'].hasError('required')">Le nom est requis</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="prenom" />
+    <mat-error *ngIf="form.controls['prenom'].hasError('required')">Le prénom est requis</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="form.controls['email'].hasError('required')">L'email est requis</mat-error>
+    <mat-error *ngIf="form.controls['email'].hasError('email')">Email invalide</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Rôle</mat-label>
+    <mat-select formControlName="role">
+      <mat-option *ngFor="let r of roles" [value]="r">{{ r }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.controls['role'].hasError('required')">Le rôle est requis</mat-error>
+  </mat-form-field>
+
+  <div class="buttons">
+    <button mat-stroked-button type="button" (click)="onCancel()">Annuler</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Enregistrer</button>
+  </div>
+
+</form>

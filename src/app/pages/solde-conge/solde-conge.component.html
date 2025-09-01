@@ -1,0 +1,45 @@
+<div class="solde-container">
+  <h2>Solde des Congés - Vue RH</h2>
+
+  <!-- Champ recherche -->
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher par employé..." />
+  <button (click)="rechercher()"> Rechercher</button>
+
+  <!-- Tableau des soldes -->
+  <table mat-table [dataSource]="soldesFiltres" class="mat-elevation-z2 full-width">
+
+    <!-- Nom -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> Employé </th>
+      <td mat-cell *matCellDef="let e"> {{ e.nom }} </td>
+    </ng-container>
+
+    <!-- Département -->
+    <ng-container matColumnDef="departement">
+      <th mat-header-cell *matHeaderCellDef> Département </th>
+      <td mat-cell *matCellDef="let e"> {{ e.departement }} </td>
+    </ng-container>
+
+    <!-- Total -->
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Total (jours) </th>
+      <td mat-cell *matCellDef="let e"> {{ e.total }} </td>
+    </ng-container>
+
+    <!-- Pris -->
+    <ng-container matColumnDef="pris">
+      <th mat-header-cell *matHeaderCellDef> Pris (jours) </th>
+      <td mat-cell *matCellDef="let e"> {{ e.pris }} </td>
+    </ng-container>
+
+    <!-- Reste -->
+    <ng-container matColumnDef="reste">
+      <th mat-header-cell *matHeaderCellDef> Restant (jours) </th>
+      <td mat-cell *matCellDef="let e"> {{ e.reste }} </td>
+    </ng-container>
+
+    <!-- Header et Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

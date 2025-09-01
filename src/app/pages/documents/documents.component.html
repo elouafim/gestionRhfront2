@@ -1,0 +1,38 @@
+<!-- documents.component.html -->
+<div class="documents-container">
+  <h2>📂 Gestion des Documents RH</h2>
+
+  <!-- Recherche -->
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher par employé..." />
+
+  <!-- Bouton upload -->
+  <button (click)="uploadDocument()">+ Ajouter un document</button>
+
+  <!-- Liste des documents -->
+<table>
+  <thead>
+    <tr>
+      <th>Employé</th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Statut</th>
+      <th>Fichier</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of filteredDocuments">
+      <td>{{ doc.employeeName }}</td>
+      <td>{{ doc.type }}</td>
+      <td>{{ doc.date }}</td>
+      <td>
+        <span [ngClass]="doc.status.toLowerCase().replace(' ', '-')">{{ doc.status }}</span>
+      </td>
+      <td><a [href]="doc.fileUrl" target="_blank">📄 Voir</a></td>
+      <td>
+        <button (click)="deleteDocument(doc.id)">🗑 Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

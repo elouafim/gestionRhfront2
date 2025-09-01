@@ -1,0 +1,54 @@
+.mes-demandes-container {
+  padding: 20px;
+}
+
+h2 {
+  color: #3f51b5;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Statuts */
+span.en-attente {
+  color: #ff9800;
+  font-weight: bold;
+}
+span.validé {
+  color: #4caf50;
+  font-weight: bold;
+}
+span.refusé {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.new-request-btn {
+  margin-bottom: 15px;
+  padding: 8px 16px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.new-request-btn:hover {
+  background-color: #303f9f;
+}
+

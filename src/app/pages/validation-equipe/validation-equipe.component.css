@@ -1,0 +1,62 @@
+.validation-container {
+  padding: 20px;
+}
+
+h2 {
+  color: #3f51b5;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+button {
+  margin-right: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:first-child { /* Valider */
+  background-color: #4caf50;
+}
+
+button:last-child { /* Refuser */
+  background-color: #f44336;
+}
+
+/* Statuts */
+span.en-attente {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+span.validé {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+span.refusé {
+  color: #f44336;
+  font-weight: bold;
+}

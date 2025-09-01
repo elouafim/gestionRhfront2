@@ -1,0 +1,29 @@
+<div class="validation-container">
+  <h2>Validation des Congés de l'Équipe</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employé</th>
+        <th>Type</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of conges">
+        <td>{{ c.employe }}</td>
+        <td>{{ c.type }}</td>
+        <td>{{ c.dateDebut }}</td>
+        <td>{{ c.dateFin }}</td>
+        <td><span [ngClass]="c.status.toLowerCase().replace(' ', '-')">{{ c.status }}</span></td>
+        <td>
+          <button *ngIf="c.status==='EN ATTENTE'" (click)="validerConge(c.id)">✅ Valider</button>
+          <button *ngIf="c.status==='EN ATTENTE'" (click)="refuserConge(c.id)">❌ Refuser</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

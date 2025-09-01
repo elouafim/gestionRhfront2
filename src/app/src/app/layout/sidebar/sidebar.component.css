@@ -1,0 +1,106 @@
+/* =====================
+   Layout principal
+===================== */
+
+/* Container principal occupe tout l'écran */
+.layout-container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* empêche scroll horizontal */
+}
+
+/* Contenu principal prend toute la hauteur */
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* Zone principale avec scroll si contenu long */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* scroll vertical si nécessaire */
+  background: #f5f7fb; /* gris clair */
+}
+
+/* =====================
+   Sidebar
+===================== */
+.sidebar {
+  width: 250px;
+  background: #f9fafc;   /* gris très clair */
+  color: #2d3e50;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar .mat-list-item {
+  color: #2d3e50;
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+.sidebar .mat-list-item:hover {
+  background: #e3e7f1;
+  color: #1a237e;
+}
+
+.sidebar mat-icon {
+  margin-right: 10px;
+  color: #5f6368;
+}
+
+/* Logo */
+.logo-img {
+  width: 70px;
+  border-radius: 50%;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Logout */
+.logout-container {
+  padding: 15px;
+  text-align: center;
+}
+
+/* =====================
+   Topbar
+===================== */
+.topbar {
+  background: #ffffff;
+  color: #1a1f36;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3e50;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Avatar */
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #2d3e50;
+}

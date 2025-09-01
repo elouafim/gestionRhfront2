@@ -1,0 +1,22 @@
+.conge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* espacement entre les champs */
+  min-width: 320px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  margin-top: 16px;
+}
+
+.date-pickers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* espace entre date début et date fin */
+}
+
+

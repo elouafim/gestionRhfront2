@@ -1,0 +1,22 @@
+<div class="historique-container">
+  <h2>Historique de mes Congés</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of historique">
+        <td>{{ h.typeConge }}</td>
+        <td>{{ h.dateDebut }}</td>
+        <td>{{ h.dateFin }}</td>
+        <td><span [ngClass]="h.statut.toLowerCase().replace(' ', '-')">{{ h.statut }}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

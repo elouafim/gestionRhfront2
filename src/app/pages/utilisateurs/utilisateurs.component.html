@@ -1,0 +1,69 @@
+<div class="users-container">
+  <h2>Gestion des Utilisateurs</h2>
+
+    <!-- Bouton Ajouter uniquement pour les RH -->
+  <button mat-raised-button color="primary" 
+          (click)="addUtilisateur()">
+    <mat-icon>person_add</mat-icon> Ajouter un utilisateur
+  </button>
+
+  <table mat-table [dataSource]="utilisateurs" class="custom-table mat-elevation-z8">
+
+    <!-- ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let utilisateur"> {{ utilisateur.id }} </td>
+    </ng-container>
+
+    <!-- Nom -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> Nom </th>
+      <td mat-cell *matCellDef="let utilisateur"> {{ utilisateur.nom }} </td>
+    </ng-container>
+
+    <!-- Prénom -->
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef> Prénom </th>
+      <td mat-cell *matCellDef="let utilisateur"> {{ utilisateur.prenom }} </td>
+    </ng-container>
+
+    <!-- Email -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let utilisateur"> {{ utilisateur.email }} </td>
+    </ng-container>
+
+    <!-- Rôle -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef> Rôle </th>
+      <td mat-cell *matCellDef="let utilisateur">
+        <span class="role-badge">{{ utilisateur.role }}</span>
+      </td>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let utilisateur" class="actions-cell">
+        <button mat-icon-button color="primary" matTooltip="Modifier" (click)="editUtilisateur(utilisateur)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Supprimer" (click)="deleteUtilisateur(utilisateur.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <mat-paginator 
+  [length]="totalPages" 
+  [pageSize]="size"
+  [pageSizeOptions]="[size]" 
+  (page)="onPageChange($event)"
+  showFirstLastButtons>
+</mat-paginator>
+</div>

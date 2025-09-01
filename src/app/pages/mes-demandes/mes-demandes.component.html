@@ -1,0 +1,25 @@
+<div class="mes-demandes-container">
+  <h2>Mes Demandes de Congés</h2>
+
+  <!-- Bouton pour nouvelle demande -->
+  <button class="new-request-btn" (click)="nouvelleDemande()">+ Nouvelle demande</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of demandes">
+        <td>{{ d.typeConge }}</td>
+        <td>{{ d.dateDebut }}</td>
+        <td>{{ d.dateFin }}</td>
+        <td><span [ngClass]="d.statut.toLowerCase().replace(' ', '-')">{{ d.statut }}</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

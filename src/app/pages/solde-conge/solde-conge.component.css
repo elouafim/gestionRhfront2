@@ -1,0 +1,24 @@
+/* Conteneur tableau occupe tout */
+.conges-container {
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Titre */
+.conges-container h2 {
+  text-align: center;
+  color: #3f51b5;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Table */
+.conges-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}

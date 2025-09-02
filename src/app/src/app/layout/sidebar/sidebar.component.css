@@ -22,7 +22,7 @@ mat-sidenav-content {
   flex: 1;
   padding: 20px;
   overflow-y: auto; /* scroll vertical si nécessaire */
-  background: #f5f7fb; /* gris clair */
+  background: #f5f7fa; /* gris très clair */
 }
 
 /* =====================
@@ -30,36 +30,36 @@ mat-sidenav-content {
 ===================== */
 .sidebar {
   width: 250px;
-  background: #f9fafc;   /* gris très clair */
-  color: #2d3e50;
+  background: #ffffff;   /* fond blanc pour contraste */
+  color: #2d3e50;        /* bleu-gris du logo */
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid #e0e0e0;
+  border-right: 1px solid #d6dbe3; /* gris doux */
 }
 
 .sidebar .mat-list-item {
   color: #2d3e50;
   border-radius: 8px;
   margin: 4px 8px;
+  font-weight: 500;
 }
 
 .sidebar .mat-list-item:hover {
-  background: #e3e7f1;
-  color: #1a237e;
+  background: #e8ecf5; /* bleu très clair en hover */
+  color: #1a2d50;      /* variante plus foncée */
 }
 
 .sidebar mat-icon {
   margin-right: 10px;
-  color: #5f6368;
+  color: #4a5568; /* gris bleuté */
 }
 
 /* Logo */
 .logo-img {
   width: 70px;
-  border-radius: 50%;
-  margin: 10px auto;
+  margin: 15px auto;
   display: block;
 }
 
@@ -74,8 +74,8 @@ mat-sidenav-content {
 ===================== */
 .topbar {
   background: #ffffff;
-  color: #1a1f36;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #2d3e50;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
   padding: 0 15px;
@@ -84,7 +84,8 @@ mat-sidenav-content {
 .app-title {
   font-size: 20px;
   font-weight: 600;
-  color: #2d3e50;
+  color: #2d3e50; /* couleur logo */
+  letter-spacing: 0.5px;
 }
 
 .flex-spacer {
@@ -104,3 +105,9 @@ mat-sidenav-content {
   border-radius: 50%;
   border: 2px solid #2d3e50;
 }
+
+.logo-img {
+    width: 150px;   /* Largeur de l'image */
+    height: auto;   /* Hauteur automatique pour garder les proportions */
+}
+

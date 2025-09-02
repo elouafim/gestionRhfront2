@@ -1,25 +1,42 @@
-<div class="mes-demandes-container">
+<div class="mes-demandes-container conges-container">
   <h2>Mes Demandes de Congés</h2>
 
   <!-- Bouton pour nouvelle demande -->
-  <button class="new-request-btn" (click)="nouvelleDemande()">+ Nouvelle demande</button>
+  <button mat-raised-button color="primary" class="new-request-btn" (click)="nouvelleDemande()">
+    + Nouvelle demande
+  </button>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Début</th>
-        <th>Fin</th>
-        <th>Statut</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let d of demandes">
-        <td>{{ d.typeConge }}</td>
-        <td>{{ d.dateDebut }}</td>
-        <td>{{ d.dateFin }}</td>
-        <td><span [ngClass]="d.statut.toLowerCase().replace(' ', '-')">{{ d.statut }}</span></td>
-      </tr>
-    </tbody>
+  <table mat-table [dataSource]="dataSource" class="conges-table" matSort>
+
+    <!-- Type -->
+    <ng-container matColumnDef="typeConge">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+      <td mat-cell *matCellDef="let d">{{ d.typeConge }}</td>
+    </ng-container>
+
+    <!-- Début -->
+    <ng-container matColumnDef="dateDebut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Début</th>
+      <td mat-cell *matCellDef="let d">{{ d.dateDebut | date:'dd/MM/yyyy' }}</td>
+    </ng-container>
+
+    <!-- Fin -->
+    <ng-container matColumnDef="dateFin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fin</th>
+      <td mat-cell *matCellDef="let d">{{ d.dateFin | date:'dd/MM/yyyy' }}</td>
+    </ng-container>
+
+    <!-- Statut -->
+    <ng-container matColumnDef="statut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Statut</th>
+      <td mat-cell *matCellDef="let d">
+        <span class="status-chip" [ngClass]="d.statut.replace(' ', '')">{{ d.statut }}</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['typeConge','dateDebut','dateFin','statut']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['typeConge','dateDebut','dateFin','statut'];"></tr>
   </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

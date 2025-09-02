@@ -1,37 +1,112 @@
+/* =====================
+   Container principal
+===================== */
 .historique-container {
   padding: 20px;
-}
-
-h2 {
-  color: #3f51b5;
-  margin-bottom: 15px;
-}
-
-table {
+  border-radius: 12px;
+  background: #ffffff;
   width: 100%;
+  max-width: 100%;
+  margin: 30px 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* =====================
+   Titre
+===================== */
+.historique-container h2 {
+  text-align: center;
+  color: #2d3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* =====================
+   Tableau
+===================== */
+.historique-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  table-layout: auto;
   border-collapse: collapse;
 }
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+/* En-têtes */
+.historique-table th {
+  background: #f5f7fa;
+  color: #2d3e50;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 12px;
+  border-bottom: 1px solid #d6dbe3;
 }
 
-tr:hover {
-  background-color: #f9f9f9;
+/* Cellules */
+.historique-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #d6dbe3;
+  text-align: center;
+  color: #2d3e50;
 }
 
-/* Statuts */
-span.en-attente {
-  color: #ff9800;
-  font-weight: bold;
+/* Hover lignes */
+.historique-table tr:hover {
+  background: #e8ecf5;
 }
-span.validé {
-  color: #4caf50;
-  font-weight: bold;
+
+/* =====================
+   Badges statut
+===================== */
+.status-chip {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  text-transform: capitalize;
 }
-span.refusé {
-  color: #f44336;
-  font-weight: bold;
+
+.status-chip.en-attente {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-chip.validé {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-chip.refusé {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* =====================
+   Pagination centrée
+===================== */
+mat-paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 768px) {
+  .historique-container {
+    padding: 10px;
+  }
+
+  .historique-table td,
+  .historique-table th {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
 }
